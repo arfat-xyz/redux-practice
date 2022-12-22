@@ -1,13 +1,14 @@
-import React, { useState } from "react";
-
+import { useSelector, useDispatch } from "react-redux";
+import { increment, decrement } from "./counterSlice";
 const Counter = () => {
-  const [count, setcount] = useState(0);
+  const count = useSelector((state) => state.counter.count);
+  const dispatch = useDispatch();
   return (
     <>
       <button
         className="button"
         aria-label="Increment value"
-        onClick={() => setcount(count + 1)}
+        onClick={() => dispatch(increment())}
       >
         {" "}
         +{" "}
@@ -16,7 +17,7 @@ const Counter = () => {
       <button
         className="button"
         aria-label="Decrement value"
-        onClick={() => setcount(count - 1)}
+        onClick={() => dispatch(decrement())}
       >
         {" "}
         -{" "}
