@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement, incrementByAmount } from "./counterSlice";
 const Counter = () => {
   const count = useSelector((state) => state.counter.count);
+  const textColor = useSelector((state) => state.colors.color);
   const dispatch = useDispatch();
   return (
     <>
@@ -25,6 +26,7 @@ const Counter = () => {
       <button
         className="button"
         onClick={() => dispatch(incrementByAmount(10))}
+        style={{ color: textColor }}
       >
         Increment by 10
       </button>
